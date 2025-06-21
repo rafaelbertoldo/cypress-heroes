@@ -1,6 +1,9 @@
+import AdminPage from '../Pages/adminPage';
+
 var Chance = require('chance');
 
 var chance = new Chance();
+const adminPage = new AdminPage();
 
 describe("Test admin permissions", () => {
   it.skip("'Create new hero' button should be available ", () => {
@@ -21,8 +24,8 @@ describe("Test admin permissions", () => {
     const price = chance.natural({ min: 10, max: 200 })
     const fans = chance.natural({ min: 10, max: 30 })
     const saves = chance.natural({ min: 1, max: 110 })
-    const randomPower = chance.natural({ min: 0, max: 7 })
-    cy.visit('http://localhost:3000/heroes')
+    const randomPower = chance.natural({ min: 0, max: 8 })
+    adminPage.accessLoginPage()
     cy.get('button').eq(0).click()
     cy.get("[name='email']").type(user)
     cy.get("[name='password']").type(password)
@@ -32,8 +35,8 @@ describe("Test admin permissions", () => {
     cy.get("[data-cy='priceInput']").type(price)
     cy.get("[data-cy='fansInput']").type(fans)
     cy.get("[data-cy='savesInput']").type(saves)
-    cy.get("option").eq(randomPower).click()
-    cy.get("[data-cy='avatarFile']").click()
-    
+    cy.get("select").select(randomPower)
+    cy.get("[data-cy='avatarFile']").attachFile('avatar.jpg')
+    cy.get("button").eq(2).click()
   })
 })
