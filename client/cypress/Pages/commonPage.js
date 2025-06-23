@@ -1,4 +1,4 @@
-class AdminPage {
+class CommonPage {
   selectorsList() {
     const selectors = {
       loginUrl: 'http://localhost:3000/',
@@ -11,7 +11,12 @@ class AdminPage {
       priceField: "[data-cy='priceInput']",
       fansField: "[data-cy='fansInput']",
       savesField: "[data-cy='savesInput']",
+      likeButton: "[data-cy='like']",
+      hireButton: "[data-cy='money']",
+      fansCounterButton: "[data-cy='fans']",
+      alertMessage: ".text-red-500",
     }
+    return selectors;
   }
 
   accessLoginPage() {
@@ -19,4 +24,4 @@ class AdminPage {
   }
 }
 
-export default AdminPage;
+export default CommonPage;

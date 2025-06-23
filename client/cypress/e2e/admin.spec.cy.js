@@ -1,15 +1,15 @@
-import AdminPage from '../Pages/adminPage';
+import CommonPage from '../Pages/commonPage';
 
 var Chance = require('chance');
 
 var chance = new Chance();
-const adminPage = new AdminPage();
+const commonPage = new CommonPage();
 
 describe("Test admin permissions", () => {
   it.skip("'Create new hero' button should be available ", () => {
     const user = 'admin@test.com'
     const password = 'test123'
-    cy.visit('http://localhost:3000/heroes')
+    commonPage.accessLoginPage()
     cy.get('button').eq(0).click()
     cy.get("[name='email']").type(user)
     cy.get("[name='password']").type(password)
