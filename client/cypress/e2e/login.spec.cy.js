@@ -2,7 +2,7 @@ import CommonPage from '../Pages/commonPage';
 
 const commonPage = new CommonPage();
 
-describe.skip("when not logged in", () => {
+describe("when not logged in", () => {
   it("clicking on like should alert the user they need to login", () => {
     commonPage.accessLoginPage()
     cy.get(commonPage.selectorsList().likeButton).eq(2).click();
@@ -16,7 +16,7 @@ describe.skip("when not logged in", () => {
   });
 });
 
-describe.skip("when normal user is logged in", () => {
+describe("when normal user is logged in", () => {
   it("clicking like on a hero should increase their fan count", () => {
     const user = 'admin@test.com';
     const password = 'test123';

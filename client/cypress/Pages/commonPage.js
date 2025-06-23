@@ -15,6 +15,9 @@ class CommonPage {
       hireButton: "[data-cy='money']",
       fansCounterButton: "[data-cy='fans']",
       alertMessage: ".text-red-500",
+      createHeroButton: "[href='/heroes/new']",
+      selectField: "select",
+      uploadField: "[data-cy='avatarFile']",
     }
     return selectors;
   }
